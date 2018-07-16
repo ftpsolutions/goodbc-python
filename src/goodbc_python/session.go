@@ -133,12 +133,11 @@ func (s *session) connect() error {
 	return nil
 }
 
-func (s *session) execute(query string) (*sql.Rows, error) {
+func (s *session) query(query string) (*sql.Rows, error) {
 	rows, err := s.db.Query("SELECT *, null AS some_null_field FROM locations;")
 	if err != nil {
 		return nil, err
 	}
-	// defer rows.Close()
 
 	return rows, err
 }
@@ -183,6 +182,15 @@ func (s *session) fetchAll(rows *sql.Rows) ([][]multiField, error) {
 	}
 
 	return records, nil
+}
+
+func (s *session) execute(query string) (*sql.Result, error) {
+	result, err := s.db.Exec(query)
+	if err != nil {
+		return nil, err
+	}
+
+	return &result, nil
 }
 
 func (s *session) close() error {
