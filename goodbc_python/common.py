@@ -71,9 +71,17 @@ def handle_records(raw_records):
             elif column.Type == 'string':
                 record += [column.StringValue]
             elif column.Type == 'datetime':
-                record += [
-                    parse(column.DateTimeValue)
-                ]
+                try:
+                    record += [
+                        parse(column.DateTimeValue)
+                    ]
+                except ValueError as e:
+                    raise ValueError(
+                        'raised {0} while parsing {1}'.format(
+                            e,
+                            repr(column.DateTimeValue)
+                        )
+                    )
 
         records += [tuple(record)]
 

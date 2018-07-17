@@ -8,7 +8,7 @@ from threading import RLock
 
 from future import standard_library
 
-from .common import handle_exception
+from .common import handle_exception, handle_records, handle_records_json
 
 standard_library.install_aliases()
 
@@ -66,14 +66,18 @@ class RPCSession(object):
     def query(self, query):
         return handle_exception(RPCQuery, (self._session_id, query), self)
 
-    def fetch_all(self, rows_id):
-        return handle_exception(RPCFetchAll, (self._session_id, rows_id), self)
+    def fetchall(self, rows_id):
+        return handle_records(
+            handle_records_json(
+                handle_exception(RPCFetchAll, (self._session_id, rows_id), self)
+            )
+        )
 
     def execute(self, query):
         return handle_exception(RPCExecute, (self._session_id, query), self)
 
-    def get_rows_affected(self, result_id):
-        return handle_exception(RPCFetchAll, (self._session_id, result_id), self)
+    def rowcount(self, result_id):
+        return handle_exception(RPCGetRowsAffected, (self._session_id, result_id), self)
 
     def close(self):
         return handle_exception(RPCClose, (self._session_id, ), self)

@@ -7,6 +7,12 @@ standard_library.install_aliases()
 from builtins import *
 from .common import GoRuntimeError
 from .rpc_session import create_session
+from .db_api import CursorClosedError, NoRowsToFetchError, ConnectionClosedError, Cursor, Connection
 
 _ = GoRuntimeError
 _ = create_session
+_ = CursorClosedError
+_ = NoRowsToFetchError
+_ = ConnectionClosedError
+_ = Cursor
+_ = Connection

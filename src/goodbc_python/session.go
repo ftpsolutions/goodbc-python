@@ -134,7 +134,7 @@ func (s *session) connect() error {
 }
 
 func (s *session) query(query string) (*sql.Rows, error) {
-	rows, err := s.db.Query("SELECT *, null AS some_null_field FROM locations;")
+	rows, err := s.db.Query(query)
 	if err != nil {
 		return nil, err
 	}
