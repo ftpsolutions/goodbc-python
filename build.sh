@@ -79,3 +79,7 @@ echo ""
 echo "build goodbc_python bindings for cffi"
 ./gopy bind -lang="cffi" -output="goodbc_python/cffi" -symbols=true -work=false goodbc_python
 echo ""
+
+echo "cleaning up"
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+echo ""
