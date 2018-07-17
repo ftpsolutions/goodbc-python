@@ -17,6 +17,17 @@ func init() {
 	_ = odbc.Driver{}
 }
 
+type multiField struct {
+	Name          string
+	Type          string
+	IsNull        bool
+	BoolValue     bool
+	IntValue      int64
+	FloatValue    float64
+	StringValue   string
+	DateTimeValue string
+}
+
 func buildRow(columns []string, values []interface{}) ([]multiField, error) {
 	row := make([]multiField, len(columns))
 
@@ -84,17 +95,6 @@ func buildRow(columns []string, values []interface{}) ([]multiField, error) {
 	}
 
 	return row, nil
-}
-
-type multiField struct {
-	Name          string
-	Type          string
-	IsNull        bool
-	BoolValue     bool
-	IntValue      int64
-	FloatValue    float64
-	StringValue   string
-	DateTimeValue string
 }
 
 type session struct {
