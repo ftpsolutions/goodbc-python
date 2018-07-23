@@ -62,7 +62,9 @@ def handle_records(raw_records):
     for raw_record in raw_records:
         record = []
         for column in raw_record:
-            if column.Type == 'bool':
+            if column.Type == 'null':
+                record += [None]
+            elif column.Type == 'bool':
                 record += [column.BoolValue]
             elif column.Type == 'int':
                 record += [column.IntValue]
