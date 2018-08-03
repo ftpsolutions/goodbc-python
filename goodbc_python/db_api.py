@@ -91,10 +91,8 @@ class Cursor(object):
                 break
 
         if is_select:
-            print 'query'
             self._query(query)
         else:
-            print 'execute'
             self._execute(query)
 
     def close(self):
