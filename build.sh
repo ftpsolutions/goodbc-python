@@ -33,29 +33,29 @@ fi
 
 if [[ "$1" != "fast" ]]; then
     echo "getting assert"
-    go get -v -a github.com/stretchr/testify/assert
+    go get -v -u github.com/stretchr/testify/assert
     echo ""
 
     echo "getting sql"
-    go get -v -a golang.org/pkg/database/sql
+    go get -v -u golang.org/pkg/database/sql
     
     echo "building sql"
-    go build -a -x golang.org/pkg/database/sql
+    go build -x -a golang.org/pkg/database/sql
 
     echo "getting goodbc"
-    go get -v -a github.com/alexbrainman/odbc
+    go get -v -u github.com/alexbrainman/odbc
     echo ""
 
     echo "building goodbc"
-    go build -a -x github.com/alexbrainman/odbc
+    go build -x -a github.com/alexbrainman/odbc
     echo ""
 
     echo "getting gopy"
-    go get -v -a github.com/go-python/gopy
+    go get -v -u github.com/go-python/gopy
     echo ""
 
     echo "installing gopy"
-    go install -v -a github.com/go-python/gopy
+    go install -i github.com/go-python/gopy
     echo ""
 
     echo "building gopy"
