@@ -43,11 +43,11 @@ To create an SNMPv2 session in Python do the following:
 ```
 from goodbc_python import Connection
 
-ip = 127.0.0.1
+ip = "127.0.0.1"
 port = 5432
-database = test
-username = test
-password = test
+database = "test"
+username = "test"
+password = "test"
 
 conn_str = """
             DRIVER={FreeTDS};

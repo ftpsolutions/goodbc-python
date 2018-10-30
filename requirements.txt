@@ -3,3 +3,4 @@ mock
 pyhamcrest
 cffi
 future
+python-dateutil

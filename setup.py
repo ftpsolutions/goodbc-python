@@ -48,11 +48,9 @@ setuptools.setup(
     include_package_data=True,
 
     install_requires=[
-        'pytest',
-        'mock',
-        'pyhamcrest',
         'cffi',
-        'future'
+        'future',
+        'python-dateutil'
     ],
 
     # Ensures that distributable copies are platform-specific and not universal
