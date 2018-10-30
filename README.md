@@ -15,6 +15,9 @@ It was made very easy with the help of the Golang [gopy](https://github.com/go-p
 * pip
 * virtualenvwrapper
 * pkgconfig/pkg-config
+* unixodbc 
+    * Linux: ```apt-get install unixodbc unixodbc-dev freetds-bin freetds-dev```
+    * OSX: ```brew install freetds --with-unixodbc```
 
 #### Installation (for prod)
 * ```python setup.py install``` 
@@ -24,6 +27,7 @@ It was made very easy with the help of the Golang [gopy](https://github.com/go-p
 
 #### Setup (for dev)
 Ensure pkg-config is installed
+Ensure unixodbc is installed
 
 * ```mkvirtualenvwrapper -p (/path/to/pypy) goodbc-python``` 
 * ```pip install -r requirements-dev.txt```
