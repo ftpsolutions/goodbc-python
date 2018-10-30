@@ -1,6 +1,6 @@
 ## goodbc-python
 
-The purpose of this module is to provide a Python interface to the Golang [goodbc](https://github.com/soniah/goodbc) module.
+The purpose of this module is to provide a Python interface to the Golang [goodbc](https://github.com/alexbrainman/odbc) module.
 
 It was made very easy with the help of the Golang [gopy](https://github.com/go-python/gopy) module.
 
