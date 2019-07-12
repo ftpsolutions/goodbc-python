@@ -42,7 +42,7 @@ Ensure unixodbc is installed
 
 #### Example Python usage
 
-To create an SNMPv2 session in Python do the following:
+To create an ODBC session in Python do the following:
 
 ```
 from goodbc_python import Connection
