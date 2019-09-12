@@ -5,7 +5,6 @@ out
 src/github.com
 *.pyc
 *__pycache__
-test*.py
 goodbc_python.so
 _goodbc_python.so
 goodbc_python.py

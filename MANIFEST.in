@@ -1,5 +1,8 @@
 include LICENSE
 include README.md
-recursive-include src/goodbc_python *
-recursive-include goodbc_python *.so
+recursive-include e2e_test *
+recursive-include goodbc_python *
+recursive-include goodbc_python_go *
+include go.mod
+include go.sum
 include build.sh

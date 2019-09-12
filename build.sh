@@ -15,6 +15,8 @@ if [[ $GOVERSION != *"go1.13"* ]]; then
 fi
 
 export PYTHONPATH=`pwd`/src/github.com/go-python/gopy/
+# Use the default go binary path - the way to do it with newer versions of golang!
+PATH=${PATH}:~/go/bin
 
 echo "cleaning up output folder"
 rm -frv goodbc_python/*.pyc
@@ -33,24 +35,20 @@ if [[ "$1" != "fast" ]]; then
 #    echo "building sql"
 #    go build -x -a golang.org/pkg/database/sql
 
-    echo "getting goodbc"
-    go get -v -u github.com/alexbrainman/odbc
-    echo ""
-
     echo "building goodbc"
-    go build -x -a github.com/alexbrainman/odbc
-    echo ""
-
-    echo "installing gopy"
-    go install -i github.com/go-python/gopy
+    go build -x -a -mod readonly github.com/alexbrainman/odbc
     echo ""
 
     echo "building gopy"
-    go build -x -a github.com/go-python/gopy
+    go build -x -a -mod readonly github.com/go-python/gopy
+    echo ""
+
+    echo "installing gopy"
+    go install -i -mod readonly github.com/go-python/gopy
     echo ""
 
     echo "building goodbc_python"
-    go build -x -a goodbc_python/goodbc_python_go
+    go build -x -a -mod readonly goodbc_python/goodbc_python_go
     echo ""
 
     # Use a specific version!
