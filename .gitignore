@@ -9,6 +9,7 @@ test*.py
 goodbc_python.so
 _goodbc_python.so
 goodbc_python.py
+goodbc_python/py2
 gopy
 prebuilt
 .cache

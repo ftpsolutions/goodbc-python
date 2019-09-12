@@ -23,13 +23,15 @@ if version < (3, 0, 0):
     from past.types.oldstr import oldstr as str
 
 if not is_pypy and version < (3, 0, 0):  # for Python2
-    from .py2.goodbc_python import SetPyPy, NewRPCSession, RPCConnect, RPCQuery, RPCFetchAll, RPCExecute, RPCGetRowsAffected, RPCClose
+    from .py2.goodbc_python_go import SetPyPy, NewRPCSession, RPCConnect, RPCQuery, RPCFetchAll, RPCExecute, RPCGetRowsAffected, RPCClose
 else:
-    from .cffi.goodbc_python import SetPyPy, NewRPCSession, RPCConnect, RPCQuery, RPCFetchAll, RPCExecute, RPCGetRowsAffected, RPCClose
+    raise ValueError('PyPy and Python3 not supported')
 
-    SetPyPy()
-
-    print('WARNING: PyPy or Python3 detected, will use CFFI- be prepared for very odd behaviour')
+#     from .cffi.goodbc_python import SetPyPy, NewRPCSession, RPCConnect, RPCQuery, RPCFetchAll, RPCExecute, RPCGetRowsAffected, RPCClose
+#
+#     SetPyPy()
+#
+#     print('WARNING: PyPy or Python3 detected, will use CFFI- be prepared for very odd behaviour')
 
 
 _new_session_lock = RLock()
