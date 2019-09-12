@@ -26,10 +26,7 @@ if [[ "$1" == "clean" ]]; then
 fi
 
 if [[ "$1" != "fast" ]]; then
-    echo "getting assert"
-    go get -v -u github.com/stretchr/testify/assert
-    echo ""
-
+# This go get doesn't seem to work anymore but the project still builds
 #    echo "getting sql"
 #    go get -v -u golang.org/pkg/database/sql
 #
@@ -42,10 +39,6 @@ if [[ "$1" != "fast" ]]; then
 
     echo "building goodbc"
     go build -x -a github.com/alexbrainman/odbc
-    echo ""
-
-    echo "getting gopy"
-    go get -v -u github.com/go-python/gopy@v0.3.1
     echo ""
 
     echo "installing gopy"
