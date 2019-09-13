@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y python2.7 \
         inetutils-ping nmap traceroute netcat tcpdump \
         net-tools bmon entr git pkg-config nano vim wget \
         curl supervisor virtualenv autoconf libsnmp-dev \
-        libncurses5-dev g++ cmake libssl-dev libaio1 liblz4-1
+        libncurses5-dev g++ cmake libssl-dev libaio1 liblz4-1 libsqliteodbc
+
+RUN apt-get install sqlite3
 
 RUN mkdir /srv/staging
 RUN wget -O /srv/staging/go1.13.linux-amd64.tar.gz https://dl.google.com/go/go1.13.linux-amd64.tar.gz
@@ -38,6 +40,8 @@ RUN python setup.py sdist && cd dist && tar zxvf *.tar.gz && cd go* && python se
 # Some magic here - it's important so that python can find a shared object
 # at runtime
 ENV LD_LIBRARY_PATH=/usr/local/lib/gopy
+
+RUN sqlite3 /workspace/testdb.sqlite < /workspace/create_test_db.sql
 
 # Get out of the base workspace dir because it was causing strange
 # python include issues due to overlapping folder names

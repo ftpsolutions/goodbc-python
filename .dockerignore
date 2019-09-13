@@ -15,5 +15,5 @@ goodbc_python/py2
 !/e2e_test
 !/LICENSE*
 !/MANIFEST.in
-
+!/create_test_db.sql
 **/*.pyc

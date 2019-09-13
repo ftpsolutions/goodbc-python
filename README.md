@@ -64,7 +64,7 @@ conn_str = """
         """ % (
     ip, port, database,
     username, password
-)
+).replace('\n', '').replace(' ', '')
 
 connection = Connection(conn_str)
 cursor = connection.cursor()
@@ -81,3 +81,13 @@ print(records)
 cursor.close()
 connection.close()
 ```
+
+## To develop / run the tests
+
+    MOUNT_WORKSPACE=1 ./test.sh bash
+    ./build.sh
+    py.test
+    
+## To test the sdist package
+
+    py.test

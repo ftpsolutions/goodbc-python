@@ -19,3 +19,4 @@ build/
 dist/
 goodbc_python.egg-info/
 .DS_Store
+testdb.sqlite
