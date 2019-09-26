@@ -1,4 +1,4 @@
-package goodbc_python
+package goodbc_python_go
 
 import (
 	"database/sql"
@@ -150,7 +150,7 @@ func RPCQuery(sessionID uint64, query string) (uint64, error) {
 
 	queryRows, err := val.query(query)
 	if err != nil {
-		return rowsID, err
+		return rowsID, fmt.Errorf("RPCQuery() query error: %v", err)
 	}
 
 	rowsMutex.Lock()

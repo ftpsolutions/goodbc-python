@@ -10,8 +10,8 @@ It was made very easy with the help of the Golang [gopy](https://github.com/go-p
 
 #### Prerequisites
 
-* Go 1.9 or Go 1.10
-* Python 2.7+, Python 3.5+, PyPy 5.10+ or PyPy3 5.10+
+* Go 1.13
+* Python 2.7+
 * pip
 * virtualenvwrapper
 * pkgconfig/pkg-config
@@ -64,7 +64,7 @@ conn_str = """
         """ % (
     ip, port, database,
     username, password
-)
+).replace('\n', '').replace(' ', '')
 
 connection = Connection(conn_str)
 cursor = connection.cursor()
@@ -81,3 +81,13 @@ print(records)
 cursor.close()
 connection.close()
 ```
+
+## To develop / run the tests
+
+    MOUNT_WORKSPACE=1 ./test.sh bash
+    ./build.sh
+    py.test
+    
+## To test the sdist package
+
+    py.test

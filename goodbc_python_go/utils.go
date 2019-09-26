@@ -1,4 +1,4 @@
-package goodbc_python
+package goodbc_python_go
 
 // #cgo pkg-config: python2
 // #include <Python.h>

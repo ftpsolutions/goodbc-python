@@ -5,10 +5,10 @@ out
 src/github.com
 *.pyc
 *__pycache__
-test*.py
 goodbc_python.so
 _goodbc_python.so
 goodbc_python.py
+goodbc_python/py2
 gopy
 prebuilt
 .cache
@@ -19,3 +19,4 @@ build/
 dist/
 goodbc_python.egg-info/
 .DS_Store
+testdb.sqlite
