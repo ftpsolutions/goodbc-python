@@ -82,6 +82,11 @@ cursor.close()
 connection.close()
 ```
 
+This seems to leak quite badly when trying to connect and query a bad IP address when using the FreeTDS driver.
+
+FreeTDS v1.1.17, their latest stable but the problem persists. It could very well be an interaction between
+goodbc and the driver. Not sure at this stage.
+
 ## To develop / run the tests
 
     MOUNT_WORKSPACE=1 ./test.sh bash

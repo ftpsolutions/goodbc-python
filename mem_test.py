@@ -1,9 +1,6 @@
 """
 Manual mem test.
-1. Make a virtual env and install all deps
-2. run `python setup.py install`
-3. run `python mem_test.py`
-4. Watch memory usage and make sure it doesn't get out of control
+# See ./test_mem.sh
 """
 from goodbc_python import Connection
 from goodbc_python.common import GoRuntimeError

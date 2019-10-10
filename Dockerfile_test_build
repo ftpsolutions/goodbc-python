@@ -43,6 +43,8 @@ ENV LD_LIBRARY_PATH=/usr/local/lib/gopy
 
 RUN sqlite3 /workspace/testdb.sqlite < /workspace/create_test_db.sql
 
+COPY odbcinst.ini /etc/odbcinst.ini
+
 # Get out of the base workspace dir because it was causing strange
 # python include issues due to overlapping folder names
 WORKDIR /workspace/dist

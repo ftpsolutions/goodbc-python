@@ -38,4 +38,5 @@ if [ ! -z "${MOUNT_WORKSPACE}" ]; then
     WORKSPACE_VOLUME="-v `pwd`:/workspace"
 fi
 
-docker run --name ${CONTAINER_NAME} --rm -it ${WORKSPACE_VOLUME} ${IMAGE_TAG} ${DOCKER_CMD}
+FINAL_CMD="docker run --name ${CONTAINER_NAME} --rm -it ${WORKSPACE_VOLUME} ${IMAGE_TAG} ${DOCKER_CMD}"
+eval ${FINAL_CMD}

@@ -16,4 +16,7 @@ goodbc_python/py2
 !/LICENSE*
 !/MANIFEST.in
 !/create_test_db.sql
+!/mem_test.py
+!/mem_test_2.py
+!/odbcinst.ini
 **/*.pyc
