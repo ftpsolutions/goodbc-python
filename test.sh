@@ -12,11 +12,14 @@ if [[ -z "$CONTAINER_NAME" ]]; then
 fi
 
 # Make sure we clean up
-function finish {
-    # Remove the container when we're done
-    echo "Cleaning up...."
-    # Go back to original dir
-    popd
+function finish() {
+  echo "Cleaning up...."
+
+  # Remove the container when we're done
+  docker rm -f ${CONTAINER_NAME} || true
+
+  # Go back to original dir
+  popd
 }
 trap finish EXIT
 
@@ -38,5 +41,15 @@ if [ ! -z "${MOUNT_WORKSPACE}" ]; then
     WORKSPACE_VOLUME="-v `pwd`:/workspace"
 fi
 
-FINAL_CMD="docker run --name ${CONTAINER_NAME} --rm -it ${WORKSPACE_VOLUME} ${IMAGE_TAG} ${DOCKER_CMD}"
-eval ${FINAL_CMD}
+# run the tests / shell
+docker run --name ${CONTAINER_NAME} --rm -d ${WORKSPACE_VOLUME} ${IMAGE_TAG} tail -F /dev/null
+docker exec -it ${CONTAINER_NAME} ${DOCKER_CMD}
+
+# extract the package for deployment
+NAME=$(cat setup.py | grep 'name=' | xargs | cut -d '=' -f 2 | tr -d ',')
+VERSION=$(cat setup.py | grep 'version=' | xargs | cut -d '=' -f 2 | tr -d ',')
+PACKAGE="${NAME}-${VERSION}"
+docker cp ${CONTAINER_NAME}:/workspace/dist/${PACKAGE}.tar.gz .
+echo "Deployable package follows:"
+ls -al ${PACKAGE}.tar.gz
+echo ""
