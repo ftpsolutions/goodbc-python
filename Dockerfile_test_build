@@ -37,6 +37,9 @@ ENV TERM="xterm" GODEBUG="cgocheck=0"
 # Install the sdist package
 RUN python setup.py sdist && cd dist && tar zxvf *.tar.gz && cd go* && python setup.py install
 
+RUN cp /workspace/_manual_test.sh /workspace/dist/
+RUN cp /workspace/manual_test.py /workspace/dist/go*-python*/
+
 # Some magic here - it's important so that python can find a shared object
 # at runtime
 ENV LD_LIBRARY_PATH=/usr/local/lib/gopy

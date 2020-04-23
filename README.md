@@ -96,3 +96,10 @@ goodbc and the driver. Not sure at this stage.
 ## To test the sdist package
 
     py.test
+
+## To do some manual testing
+
+    ./manual_test.sh
+
+This will spin up a Docker container that tries to connect to a specific database (internal to FTP Solutions); if the database is not
+there it'll simply fail (which is a good way to manually test for leaking memory).

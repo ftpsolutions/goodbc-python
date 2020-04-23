@@ -1,11 +1,16 @@
-from goodbc_python import Connection
 from hamcrest import assert_that, equal_to
 
-def test_odbc_connection():
+from goodbc_python import Connection
 
+
+def test_odbc_connection():
     conn_str = """DRIVER={SQLite3};
                   Database=/workspace/testdb.sqlite;
-            """.replace('\n', '').replace(' ', '')
+            """.replace(
+        "\n", ""
+    ).replace(
+        " ", ""
+    )
 
     connection = Connection(conn_str)
     cursor = connection.cursor()

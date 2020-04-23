@@ -3,7 +3,7 @@
 
 # Allow files and directories
 !/goodbc_python
-goodbc_python/py2
+/goodbc_python/py2
 !/goodbc_python/py2/__init__.py
 !/goodbc_python_go
 !/build.sh
@@ -16,7 +16,7 @@ goodbc_python/py2
 !/LICENSE*
 !/MANIFEST.in
 !/create_test_db.sql
-!/mem_test.py
-!/mem_test_2.py
 !/odbcinst.ini
+!/manual_test.py
+!/_manual_test.sh
 **/*.pyc
