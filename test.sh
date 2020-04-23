@@ -29,7 +29,7 @@ if [ -z "${SKIP_BUILD}" ]; then
     DOCKER_BUILDKIT=1 docker build --tag ${IMAGE_TAG} -f Dockerfile_test_build .
 fi
 
-DOCKER_CMD="py.test -v -s goodbc_python"
+DOCKER_CMD="py.test -v -s"
 if [ "$#" -gt 0 ]; then
     echo "Using command from args"
     DOCKER_CMD=$@
