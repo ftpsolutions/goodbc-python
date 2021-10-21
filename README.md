@@ -1,3 +1,12 @@
+# DEPRECATION NOTICE
+
+Use of this library is not recommended if you need to interact with an MSSQL database (because UnixODBC and FreeTDS are flaky).
+
+You should instead check out [gomssql-python](https://github.com/ftpsolutions/gomssql-python) which removes the need for UnixODBC and
+FreeTDS.
+
+If you're interacting with some other ODBC-exposed database and you know what you're doing though, please fill your boots.
+
 ## goodbc-python
 
 The purpose of this module is to provide a Python interface to the Golang [goodbc](https://github.com/alexbrainman/odbc) module.
@@ -6,7 +15,7 @@ It was made very easy with the help of the Golang [gopy](https://github.com/go-p
 
 #### Versions
 
-This version (0.2.4) is the last version to support Python 2; all versions after this have been subject to a refactor and support Python 3
+This version (0.91) is the last version to support Python 2; all versions after this have been subject to a refactor and support Python 3
 only.
 
 #### Limitations
@@ -23,6 +32,10 @@ only.
 * unixodbc
     * Linux: ```apt-get install unixodbc unixodbc-dev freetds-bin freetds-dev```
     * OSX: ```brew install freetds --with-unixodbc```
+
+#### Installation (from PyPI)
+
+* ```python -m pip install goodbc-python```
 
 #### Installation (for prod)
 
