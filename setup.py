@@ -46,7 +46,7 @@ setuptools.setup(
     include_package_data=True,
     # Force the egg to unzip
     zip_safe=False,
-    install_requires=["cffi==1.11.5", "future==0.17.1", "python-dateutil==2.7.5"],
+    install_requires=["cffi==1.11.5", "future==0.18.3", "python-dateutil==2.7.5"],
     # Ensures that distributable copies are platform-specific and not universal
     distclass=BinaryDistribution,
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
