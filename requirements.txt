@@ -1,11 +1,11 @@
-setuptools<45.0.0
+setuptools<83.0.0
 more-itertools<=5.0.0
 attrs==19.1.0
 pytest==4.6.5
 mock==2.0.0
 PyHamcrest==1.9.0
 cffi==1.11.5
-future==0.16.0  # needed by gosnmp_python, gossh_python and goodbc_python
+future==1.0.0  # needed by gosnmp_python, gossh_python and goodbc_python
 python-dateutil==2.7.5
 guppy==0.1.11
-zipp==1.2.0
+zipp==3.19.1
